@@ -55,7 +55,7 @@ export function FeaturedBooks() {
           {featuredBooks.map((book) => (
             <Card key={book.id} className="overflow-hidden">
               <CardHeader className="p-0">
-                <div className="relative aspect-[3/4]">
+                <div className="relative aspect-[16/9]"> 
                   <Image
                     src={book.cover}
                     alt={book.title}

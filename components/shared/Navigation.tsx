@@ -2,12 +2,15 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { Sun,MoonIcon } from "lucide-react";
+import { useTheme } from 'next-themes';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { BookOpen, Menu, Search, X } from 'lucide-react';
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
+  const { theme, setTheme } = useTheme();
 
   const navItems = [
     { href: '/', label: 'Home' },
@@ -46,6 +49,11 @@ export function Navigation() {
                 {item.label}
               </Link>
             ))}
+            <Button
+              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            >
+            {theme === 'dark' ? <Sun className="h-5 w-5" /> : <MoonIcon className="h-5 w-5" />}
+            </Button>
           </div>
 
           <button
